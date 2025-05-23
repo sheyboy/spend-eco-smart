@@ -11,9 +11,9 @@ const HomeTab = () => {
   const pointsBalance = 1250;
 
   const recentTransactions = [
-    { id: 1, merchant: 'Green Coffee Co.', amount: -4.50, category: 'Food & Drink', isGreen: true, time: '2 hours ago' },
-    { id: 2, merchant: 'Organic Market', amount: -23.80, category: 'Groceries', isGreen: true, time: '1 day ago' },
-    { id: 3, merchant: 'Gas Station', amount: -45.00, category: 'Transportation', isGreen: false, time: '2 days ago' },
+    { id: 1, merchant: 'Green Coffee Co.', amount: -1800, category: 'Food & Drink', isGreen: true, time: '2 hours ago' },
+    { id: 2, merchant: 'Organic Market', amount: -9520, category: 'Groceries', isGreen: true, time: '1 day ago' },
+    { id: 3, merchant: 'Gas Station', amount: -18000, category: 'Transportation', isGreen: false, time: '2 days ago' },
   ];
 
   return (
@@ -110,7 +110,7 @@ const HomeTab = () => {
                 </div>
               </div>
               <span className={`font-semibold ${transaction.amount > 0 ? 'text-green-600' : 'text-gray-800'}`}>
-                {transaction.amount > 0 ? '+' : ''}${Math.abs(transaction.amount).toFixed(2)}
+                {transaction.amount > 0 ? '+' : ''}₦{Math.abs(transaction.amount).toLocaleString()}
               </span>
             </div>
           ))}

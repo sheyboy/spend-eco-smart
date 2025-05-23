@@ -40,9 +40,9 @@ const RewardsTab = () => {
   ];
 
   const rewards = [
-    { id: 1, name: '$5 Coffee Credit', cost: 500, available: true },
-    { id: 2, name: '$10 Organic Market', cost: 1000, available: true },
-    { id: 3, name: '$25 Eco Products', cost: 2500, available: false },
+    { id: 1, name: '₦2,000 Coffee Credit', cost: 500, available: true },
+    { id: 2, name: '₦4,000 Organic Market', cost: 1000, available: true },
+    { id: 3, name: '₦10,000 Eco Products', cost: 2500, available: false },
     { id: 4, name: 'Tree Planting Donation', cost: 750, available: true },
   ];
 

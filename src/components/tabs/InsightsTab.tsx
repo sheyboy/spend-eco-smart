@@ -10,11 +10,11 @@ const InsightsTab = () => {
   const [showCarbon, setShowCarbon] = useState(false);
 
   const spendingData = [
-    { category: 'Food & Drink', amount: 245, carbon: 8.2, change: 12 },
-    { category: 'Transportation', amount: 180, carbon: 45.6, change: -8 },
-    { category: 'Shopping', amount: 320, carbon: 12.4, change: 25 },
-    { category: 'Entertainment', amount: 95, carbon: 3.1, change: -15 },
-    { category: 'Groceries', amount: 156, carbon: 6.8, change: 5 },
+    { category: 'Food & Drink', amount: 98000, carbon: 8.2, change: 12 },
+    { category: 'Transportation', amount: 72000, carbon: 45.6, change: -8 },
+    { category: 'Shopping', amount: 128000, carbon: 12.4, change: 25 },
+    { category: 'Entertainment', amount: 38000, carbon: 3.1, change: -15 },
+    { category: 'Groceries', amount: 62400, carbon: 6.8, change: 5 },
   ];
 
   const totalSpent = spendingData.reduce((sum, item) => sum + item.amount, 0);
@@ -47,7 +47,7 @@ const InsightsTab = () => {
       <div className="grid grid-cols-2 gap-4">
         <Card>
           <CardContent className="p-4 text-center">
-            <div className="text-2xl font-bold text-gray-800">${totalSpent}</div>
+            <div className="text-2xl font-bold text-gray-800">₦{totalSpent.toLocaleString()}</div>
             <p className="text-sm text-gray-600">Total spent this {timeRange}</p>
           </CardContent>
         </Card>
@@ -87,7 +87,7 @@ const InsightsTab = () => {
                     <span className="font-medium text-gray-800">{item.category}</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <span className="font-semibold text-gray-800">${item.amount}</span>
+                    <span className="font-semibold text-gray-800">₦{item.amount.toLocaleString()}</span>
                     <Badge
                       variant={item.change > 0 ? 'destructive' : 'secondary'}
                       className={item.change > 0 ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}

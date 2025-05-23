@@ -49,8 +49,8 @@ const InvestTab = () => {
     }
   ];
 
-  const portfolioValue = 2850;
-  const todayChange = 45.20;
+  const portfolioValue = 1140000;
+  const todayChange = 18080;
   const todayChangePercent = 1.6;
 
   if (showQuiz) {
@@ -130,11 +130,11 @@ const InvestTab = () => {
             <div>
               <h3 className="text-lg font-semibold opacity-90">Portfolio Value</h3>
               <div className="flex items-center space-x-2">
-                <span className="text-3xl font-bold">${portfolioValue.toLocaleString()}</span>
+                <span className="text-3xl font-bold">₦{portfolioValue.toLocaleString()}</span>
               </div>
               <div className="flex items-center space-x-2 mt-1">
                 <span className={`text-sm ${todayChange >= 0 ? 'text-green-200' : 'text-red-200'}`}>
-                  {todayChange >= 0 ? '+' : ''}${todayChange.toFixed(2)} ({todayChangePercent >= 0 ? '+' : ''}{todayChangePercent}%)
+                  {todayChange >= 0 ? '+' : ''}₦{todayChange.toLocaleString()} ({todayChangePercent >= 0 ? '+' : ''}{todayChangePercent}%)
                 </span>
                 <span className="text-sm opacity-75">today</span>
               </div>
