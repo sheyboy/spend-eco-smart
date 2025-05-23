@@ -17,10 +17,10 @@ const LearnTab = () => {
   const progressPercentage = (userProgress.completedLessons / userProgress.totalLessons) * 100;
 
   const categories = [
-    { name: 'Budgeting Basics', lessons: 6, color: 'bg-blue-100 text-blue-700' },
-    { name: 'Investment 101', lessons: 8, color: 'bg-green-100 text-green-700' },
-    { name: 'Debt Management', lessons: 5, color: 'bg-red-100 text-red-700' },
-    { name: 'Retirement Planning', lessons: 5, color: 'bg-purple-100 text-purple-700' },
+    { name: 'Budgeting Basics', lessons: 6, color: 'bg-blue-100 text-blue-700', emoji: '💰' },
+    { name: 'Investment 101', lessons: 8, color: 'bg-green-100 text-green-700', emoji: '📊' },
+    { name: 'Debt Management', lessons: 5, color: 'bg-red-100 text-red-700', emoji: '🧮' },
+    { name: 'Retirement Planning', lessons: 5, color: 'bg-purple-100 text-purple-700', emoji: '👵' },
   ];
 
   const lessons = [
@@ -32,7 +32,8 @@ const LearnTab = () => {
       difficulty: 'Beginner',
       completed: false,
       popular: true,
-      description: 'Learn how your money can grow exponentially over time'
+      description: 'Learn how your money can grow exponentially over time',
+      emoji: '📈'
     },
     {
       id: 2,
@@ -42,7 +43,8 @@ const LearnTab = () => {
       difficulty: 'Beginner',
       completed: true,
       popular: false,
-      description: 'Master the fundamentals of tracking income and expenses'
+      description: 'Master the fundamentals of tracking income and expenses',
+      emoji: '📝'
     },
     {
       id: 3,
@@ -52,7 +54,8 @@ const LearnTab = () => {
       difficulty: 'Beginner',
       completed: false,
       popular: true,
-      description: 'Build a safety net for unexpected expenses'
+      description: 'Build a safety net for unexpected expenses',
+      emoji: '🛡️'
     },
     {
       id: 4,
@@ -62,7 +65,8 @@ const LearnTab = () => {
       difficulty: 'Intermediate',
       completed: false,
       popular: false,
-      description: 'Compare strategies for paying off multiple debts'
+      description: 'Compare strategies for paying off multiple debts',
+      emoji: '❄️'
     },
     {
       id: 5,
@@ -72,7 +76,8 @@ const LearnTab = () => {
       difficulty: 'Intermediate',
       completed: false,
       popular: true,
-      description: 'Align your investments with your environmental values'
+      description: 'Align your investments with your environmental values',
+      emoji: '🌱'
     },
   ];
 
@@ -86,7 +91,7 @@ const LearnTab = () => {
     <div className="p-4 space-y-6">
       {/* Header */}
       <div className="pt-4">
-        <h1 className="text-2xl font-bold text-gray-800">Learn & Grow</h1>
+        <h1 className="text-2xl font-bold text-gray-800">Learn & Grow 🧠</h1>
         <p className="text-gray-600">Master money skills at your own pace</p>
       </div>
 
@@ -112,7 +117,7 @@ const LearnTab = () => {
               </div>
             </div>
             <div className="w-16 h-16 rounded-full border-4 border-white/30 flex items-center justify-center">
-              <Trophy className="w-8 h-8" />
+              <span className="text-2xl">🏆</span>
             </div>
           </div>
           <div className="space-y-2">
@@ -141,11 +146,15 @@ const LearnTab = () => {
 
       {/* Categories */}
       <div>
-        <h3 className="text-lg font-semibold text-gray-800 mb-3">Categories</h3>
+        <h3 className="text-lg font-semibold text-gray-800 mb-3 flex items-center">
+          <span className="mr-2">📚</span>
+          Categories
+        </h3>
         <div className="grid grid-cols-2 gap-3">
           {categories.map((category, index) => (
             <Card key={index} className="hover:shadow-md transition-shadow cursor-pointer">
               <CardContent className="p-4 text-center">
+                <div className="text-2xl mb-2">{category.emoji}</div>
                 <div className={`inline-block px-3 py-1 rounded-full text-sm font-medium mb-2 ${category.color}`}>
                   {category.name}
                 </div>
@@ -158,7 +167,10 @@ const LearnTab = () => {
 
       {/* Featured Lessons */}
       <div>
-        <h3 className="text-lg font-semibold text-gray-800 mb-4">Continue Learning</h3>
+        <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+          <span className="mr-2">📖</span>
+          Continue Learning
+        </h3>
         <div className="space-y-4">
           {lessons.map((lesson) => (
             <Card key={lesson.id} className="hover:shadow-md transition-shadow">
@@ -166,6 +178,7 @@ const LearnTab = () => {
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex-1">
                     <div className="flex items-center space-x-2 mb-1">
+                      <span className="text-xl mr-1">{lesson.emoji}</span>
                       <h4 className="font-semibold text-gray-800">{lesson.title}</h4>
                       {lesson.popular && (
                         <Badge className="bg-orange-100 text-orange-700">
@@ -214,7 +227,10 @@ const LearnTab = () => {
       {/* Badges */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-lg">Your Badges</CardTitle>
+          <CardTitle className="text-lg flex items-center">
+            <span className="mr-2">🏅</span>
+            Your Badges
+          </CardTitle>
         </CardHeader>
         <CardContent className="p-4 pt-0">
           <div className="grid grid-cols-3 gap-4">

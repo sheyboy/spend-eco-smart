@@ -23,7 +23,8 @@ const InvestTab = () => {
       fee: '0.65%',
       description: 'Invests in renewable energy and clean technology companies',
       match: 85,
-      isESG: true
+      isESG: true,
+      emoji: '♻️'
     },
     {
       id: 2,
@@ -34,7 +35,8 @@ const InvestTab = () => {
       fee: '0.45%',
       description: 'Fixed income securities funding environmental projects',
       match: 92,
-      isESG: true
+      isESG: true,
+      emoji: '🌱'
     },
     {
       id: 3,
@@ -45,7 +47,8 @@ const InvestTab = () => {
       fee: '0.85%',
       description: 'Diversified exposure to technology innovation leaders',
       match: 78,
-      isESG: false
+      isESG: false,
+      emoji: '💻'
     }
   ];
 
@@ -57,7 +60,7 @@ const InvestTab = () => {
     return (
       <div className="p-4 space-y-6">
         <div className="pt-4">
-          <h1 className="text-2xl font-bold text-gray-800">Investment Profile</h1>
+          <h1 className="text-2xl font-bold text-gray-800">Investment Profile 📊</h1>
           <p className="text-gray-600">Help us understand your investment goals</p>
         </div>
 
@@ -119,7 +122,7 @@ const InvestTab = () => {
     <div className="p-4 space-y-6">
       {/* Header */}
       <div className="pt-4">
-        <h1 className="text-2xl font-bold text-gray-800">Smart Investing</h1>
+        <h1 className="text-2xl font-bold text-gray-800">Smart Investing 📈</h1>
         <p className="text-gray-600">Personalized investment recommendations</p>
       </div>
 
@@ -140,7 +143,7 @@ const InvestTab = () => {
               </div>
             </div>
             <div className="w-16 h-16 rounded-full border-4 border-white/30 flex items-center justify-center">
-              <TrendingUp className="w-8 h-8" />
+              <span className="text-2xl">💹</span>
             </div>
           </div>
         </CardContent>
@@ -150,7 +153,10 @@ const InvestTab = () => {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center justify-between">
-            Risk Profile
+            <span className="flex items-center">
+              <span className="mr-2">🎯</span>
+              Risk Profile
+            </span>
             <Button
               variant="outline"
               size="sm"
@@ -184,7 +190,10 @@ const InvestTab = () => {
 
       {/* Recommended Funds */}
       <div>
-        <h3 className="text-lg font-semibold text-gray-800 mb-4">Recommended for You</h3>
+        <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+          <span className="mr-2">✨</span>
+          Recommended for You
+        </h3>
         <div className="space-y-4">
           {recommendedFunds.map((fund) => (
             <Card key={fund.id} className="hover:shadow-md transition-shadow">
@@ -192,6 +201,7 @@ const InvestTab = () => {
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex-1">
                     <div className="flex items-center space-x-2 mb-1">
+                      <span className="text-xl mr-1">{fund.emoji}</span>
                       <h4 className="font-semibold text-gray-800">{fund.name}</h4>
                       {fund.isESG && (
                         <Badge className="bg-green-100 text-green-700">

@@ -19,7 +19,8 @@ const RewardsTab = () => {
       icon: Coffee, 
       multiplier: '2x points',
       category: 'Food & Drink',
-      color: 'bg-amber-100 text-amber-700'
+      color: 'bg-amber-100 text-amber-700',
+      emoji: '☕'
     },
     { 
       id: 2, 
@@ -27,7 +28,8 @@ const RewardsTab = () => {
       icon: Car, 
       multiplier: '3x points',
       category: 'Transportation',
-      color: 'bg-green-100 text-green-700'
+      color: 'bg-green-100 text-green-700',
+      emoji: '🚗'
     },
     { 
       id: 3, 
@@ -35,21 +37,22 @@ const RewardsTab = () => {
       icon: ShoppingBag, 
       multiplier: '1.5x points',
       category: 'Shopping',
-      color: 'bg-purple-100 text-purple-700'
+      color: 'bg-purple-100 text-purple-700',
+      emoji: '👜'
     },
   ];
 
   const rewards = [
-    { id: 1, name: '₦2,000 Coffee Credit', cost: 500, available: true },
-    { id: 2, name: '₦4,000 Organic Market', cost: 1000, available: true },
-    { id: 3, name: '₦10,000 Eco Products', cost: 2500, available: false },
-    { id: 4, name: 'Tree Planting Donation', cost: 750, available: true },
+    { id: 1, name: '₦2,000 Coffee Credit', cost: 500, available: true, emoji: '☕' },
+    { id: 2, name: '₦4,000 Organic Market', cost: 1000, available: true, emoji: '🥗' },
+    { id: 3, name: '₦10,000 Eco Products', cost: 2500, available: false, emoji: '🌿' },
+    { id: 4, name: 'Tree Planting Donation', cost: 750, available: true, emoji: '🌳' },
   ];
 
   const recentEarnings = [
-    { merchant: 'Green Coffee Co.', points: 45, multiplier: '2x', time: '2 hours ago' },
-    { merchant: 'Organic Market', points: 120, multiplier: '1x', time: '1 day ago' },
-    { merchant: 'EcoRide Share', points: 90, multiplier: '3x', time: '2 days ago' },
+    { merchant: 'Green Coffee Co.', points: 45, multiplier: '2x', time: '2 hours ago', emoji: '☕' },
+    { merchant: 'Organic Market', points: 120, multiplier: '1x', time: '1 day ago', emoji: '🥗' },
+    { merchant: 'EcoRide Share', points: 90, multiplier: '3x', time: '2 days ago', emoji: '🚗' },
   ];
 
   const segments = [
@@ -64,7 +67,7 @@ const RewardsTab = () => {
     <div className="p-4 space-y-6">
       {/* Header */}
       <div className="pt-4">
-        <h1 className="text-2xl font-bold text-gray-800">Eco Rewards</h1>
+        <h1 className="text-2xl font-bold text-gray-800">Eco Rewards 🎁</h1>
         <p className="text-gray-600">Earn points for sustainable choices</p>
       </div>
 
@@ -80,7 +83,7 @@ const RewardsTab = () => {
               </div>
             </div>
             <div className="w-16 h-16 rounded-full border-4 border-white/30 flex items-center justify-center">
-              <Gift className="w-8 h-8" />
+              <span className="text-2xl">🎁</span>
             </div>
           </div>
           <div className="space-y-2">
@@ -120,14 +123,17 @@ const RewardsTab = () => {
         <div className="space-y-4">
           <Card>
             <CardHeader>
-              <CardTitle className="text-lg">Recent Earnings</CardTitle>
+              <CardTitle className="text-lg flex items-center">
+                <span className="mr-2">📋</span>
+                Recent Earnings
+              </CardTitle>
             </CardHeader>
             <CardContent className="p-4 pt-0 space-y-3">
               {recentEarnings.map((earning, index) => (
                 <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-gray-50">
                   <div className="flex items-center space-x-3">
                     <div className="p-2 rounded-full bg-green-100">
-                      <Leaf className="w-4 h-4 text-green-600" />
+                      <span className="text-sm">{earning.emoji}</span>
                     </div>
                     <div>
                       <span className="font-medium text-gray-800">{earning.merchant}</span>
@@ -155,8 +161,8 @@ const RewardsTab = () => {
               <Card key={partner.id}>
                 <CardContent className="p-4">
                   <div className="flex items-center space-x-4">
-                    <div className={`p-3 rounded-full ${partner.color}`}>
-                      <Icon className="w-6 h-6" />
+                    <div className={`p-3 rounded-full ${partner.color} flex items-center justify-center`}>
+                      <span className="text-lg">{partner.emoji}</span>
                     </div>
                     <div className="flex-1">
                       <h3 className="font-semibold text-gray-800">{partner.name}</h3>
@@ -182,9 +188,12 @@ const RewardsTab = () => {
             <Card key={reward.id} className={!reward.available ? 'opacity-60' : ''}>
               <CardContent className="p-4">
                 <div className="flex items-center justify-between">
-                  <div className="flex-1">
-                    <h3 className="font-semibold text-gray-800">{reward.name}</h3>
-                    <p className="text-sm text-gray-600">{reward.cost} points required</p>
+                  <div className="flex-1 flex items-center">
+                    <span className="text-xl mr-2">{reward.emoji}</span>
+                    <div>
+                      <h3 className="font-semibold text-gray-800">{reward.name}</h3>
+                      <p className="text-sm text-gray-600">{reward.cost} points required</p>
+                    </div>
                   </div>
                   <Button
                     disabled={!reward.available || pointsBalance < reward.cost}

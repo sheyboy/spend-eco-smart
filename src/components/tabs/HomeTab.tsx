@@ -38,7 +38,7 @@ const HomeTab = () => {
             </div>
             <div className="w-16 h-16 rounded-full border-4 border-white/30 flex items-center justify-center">
               <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
-                <Leaf className="w-6 h-6" />
+                <span className="text-2xl">🌱</span>
               </div>
             </div>
           </div>
@@ -49,13 +49,19 @@ const HomeTab = () => {
       <div className="grid grid-cols-2 gap-4">
         <Card>
           <CardContent className="p-4 text-center">
-            <div className="text-2xl font-bold text-green-600">{carbonSaved} kg</div>
+            <div className="flex justify-center items-center gap-2">
+              <span className="text-xl">🌍</span>
+              <div className="text-2xl font-bold text-green-600">{carbonSaved} kg</div>
+            </div>
             <p className="text-sm text-gray-600">CO₂ saved this month</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-4 text-center">
-            <div className="text-2xl font-bold text-orange-600">{pointsBalance}</div>
+            <div className="flex justify-center items-center gap-2">
+              <span className="text-xl">🏆</span>
+              <div className="text-2xl font-bold text-orange-600">{pointsBalance}</div>
+            </div>
             <p className="text-sm text-gray-600">Reward points</p>
           </CardContent>
         </Card>
@@ -83,7 +89,10 @@ const HomeTab = () => {
       {/* Recent Transactions */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-lg">Recent Activity</CardTitle>
+          <CardTitle className="text-lg flex items-center">
+            <span className="mr-2">📊</span>
+            Recent Activity
+          </CardTitle>
         </CardHeader>
         <CardContent className="p-4 pt-0 space-y-3">
           {recentTransactions.map((transaction) => (

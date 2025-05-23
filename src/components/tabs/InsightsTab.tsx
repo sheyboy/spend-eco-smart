@@ -24,7 +24,7 @@ const InsightsTab = () => {
     <div className="p-4 space-y-6">
       {/* Header */}
       <div className="pt-4">
-        <h1 className="text-2xl font-bold text-gray-800">Spending Insights</h1>
+        <h1 className="text-2xl font-bold text-gray-800">Spending Insights 📈</h1>
         <p className="text-gray-600">Understand your financial habits</p>
       </div>
 
@@ -47,13 +47,19 @@ const InsightsTab = () => {
       <div className="grid grid-cols-2 gap-4">
         <Card>
           <CardContent className="p-4 text-center">
-            <div className="text-2xl font-bold text-gray-800">₦{totalSpent.toLocaleString()}</div>
+            <div className="flex justify-center items-center gap-2">
+              <span className="text-xl">💰</span>
+              <div className="text-2xl font-bold text-gray-800">₦{totalSpent.toLocaleString()}</div>
+            </div>
             <p className="text-sm text-gray-600">Total spent this {timeRange}</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-4 text-center">
-            <div className="text-2xl font-bold text-orange-600">{totalCarbon.toFixed(1)} kg</div>
+            <div className="flex justify-center items-center gap-2">
+              <span className="text-xl">🍃</span>
+              <div className="text-2xl font-bold text-orange-600">{totalCarbon.toFixed(1)} kg</div>
+            </div>
             <p className="text-sm text-gray-600">CO₂ footprint</p>
           </CardContent>
         </Card>
@@ -127,6 +133,7 @@ const InsightsTab = () => {
       {/* Empty State Helper */}
       <Card className="bg-blue-50 border-blue-200">
         <CardContent className="p-4 text-center">
+          <div className="mb-2 text-2xl">📊</div>
           <BarChart3 className="w-8 h-8 text-blue-500 mx-auto mb-2" />
           <p className="text-sm text-blue-700">
             Link more accounts to get deeper insights into your spending patterns
